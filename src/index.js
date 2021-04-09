@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
+//<App /> : component == function that returns HTML
+// component 가 작동하려면 <App /> 처럼 HTML 형태에있어야 REACT가 COMPONENT로 인식함
+// REACT 만의 개념 : JSX : JAVASCRIPT + HTML
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// react application 이 하나의 component 만을 rendering 해야하기 때문에 아래 소스는 실행 오류
+/*
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import Potato from './Potato';
+ReactDOM.render(<App /><Potato />, document.getElementById('root'));
+*/
+
