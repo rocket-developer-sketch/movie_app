@@ -61,12 +61,16 @@ const foodILike = [
 그냥 쓰면 text
 */
 
+//state는 보통 동적 데이터와 함께 작업할 때 만들어짐. props는 동적 데이터 작동 원활히 도와주지 않음
+
+
 /*
 function Food(props)
 property 가 object로 넘어와서 console에는 fav = "kimchi" 라고 적힘
 function Food({fav}) {}
 {프로퍼티} 라고 써주면 프로퍼티 안의 값을 바로 가져올 수 있음
 */
+
 
 function Food({ name, picture, rating }) {
   return (
@@ -96,6 +100,7 @@ function renderFood(dish){
   return <Food key= {dish.id} name={dish.name} picture={dish.image} rating={dish.rating}/>
 }
 
+// function component
 function App() {
   return (
     <div>
