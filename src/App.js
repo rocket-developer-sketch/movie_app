@@ -1,79 +1,24 @@
 import React from 'react' //추가
 
-/* class는 return 대신 render method가 있음 */
-/* function compoennt 와 class component 차이점
-  function은 무언가를 return하고 screen에 표시됨.
-  class component는 class지만 react component로 부터 확장되고 screen에 표시 됨
-  react 는 자동으로 render method 실행 함
-  react는 reder를 refresh 해 주지 않음. 
-
-  매번 state의 상태를 변경할 때 react가 reder function을 호출하여 refresh 해주려면
-  this.state.count 대신 this.setState({count:1})하면, react는 state를 refresh하고 또한 render function을 호출하도록 사용
-
-  ★ setState 로 새로운 state 를 render 한다.
-
-  this.setState(current => ({ count: current.count + 1 })); 이라 하므로써 class attribute의 '현재 상태' 사용
-
-  class는 state 를 가지고 있고, state 는 object임.
-  state object는 component의 data를 넣을 공간이 있고 이 데이터는 변할 수 있음
-  바꿀 데이터는 state 안에 넣음
-*/
-
-/*
-react는 life cycle method 를 가짐
-(render 전에 생성 되는 것, 후에 생성되는 것)
-
-mounting == 태어나는 것
-  componentDidMount(react)
-updating == 업데이트
-  componentDidUpdate(react)
-unmounting == component 가 죽을 때(페이지가 교체 될 때 사용됨)
-
-현재 예시에서
-  업데이트 == Add 혹은 Minus 버튼을 클릭해서 setState() 로 state를 변경할 때 
+/* 미래에 쓰고자 하는 state를 선언하는 건 필수가 아님
+그렇기 때문에 setTimeout() 에서 setState({isLoading: false, book: true})
+라고 사용해도 에러 발생하지 않음
 */
 class App extends React.Component{
   state = {
-    count: 0
+    isLoading: true
   };
 
-  add = () => {
-    this.setState(current => ({ count: current.count + 1 }));
-  };
-
-  minus = () => {
-    this.setState(current => ({ count: current.count - 1 }));
-  };
-
-  componentDidMount () {
-    console.log("component rendered");
-  }
-
-  componentDidUpdate () {
-    console.log("I just updated");
-  }
-
-  componentWillUnmount () {
-    console.log("Goodbye, cruel workd")
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isLoading: false });
+    }, 6000);
   }
 
   render () {
-    console.log("Im rendering");
-    return ( 
-    <div>
-      <h1>The number is {this.state.count}</h1>
-      <button onClick={this.add}>Add</button>
-      <button onClick={this.minus}>Minus</button>
-    </div>
-    );
+    const {isLoading} = this.state;
+    return <div>{isLoading ? "Loading..." : "We are ready"}</div>;
   }
 }
 
 export default App;
-
-/*
- <button onClick={this.add}>Add</button>
-onClick 은 react 문법
-{this.add()} 라고 부르지 않음. ()를 붙으면 그 즉시 호출 하라는 의미임
-this.add라고 부름
- */
