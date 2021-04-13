@@ -1,5 +1,4 @@
 import React from 'react' //추가
-import PropTypes from "prop-types"
 
 /* class는 return 대신 render method가 있음 */
 /* function compoennt 와 class component 차이점
@@ -19,6 +18,20 @@ import PropTypes from "prop-types"
   state object는 component의 data를 넣을 공간이 있고 이 데이터는 변할 수 있음
   바꿀 데이터는 state 안에 넣음
 */
+
+/*
+react는 life cycle method 를 가짐
+(render 전에 생성 되는 것, 후에 생성되는 것)
+
+mounting == 태어나는 것
+  componentDidMount(react)
+updating == 업데이트
+  componentDidUpdate(react)
+unmounting == component 가 죽을 때(페이지가 교체 될 때 사용됨)
+
+현재 예시에서
+  업데이트 == Add 혹은 Minus 버튼을 클릭해서 setState() 로 state를 변경할 때 
+*/
 class App extends React.Component{
   state = {
     count: 0
@@ -32,7 +45,20 @@ class App extends React.Component{
     this.setState(current => ({ count: current.count - 1 }));
   };
 
+  componentDidMount () {
+    console.log("component rendered");
+  }
+
+  componentDidUpdate () {
+    console.log("I just updated");
+  }
+
+  componentWillUnmount () {
+    console.log("Goodbye, cruel workd")
+  }
+
   render () {
+    console.log("Im rendering");
     return ( 
     <div>
       <h1>The number is {this.state.count}</h1>
