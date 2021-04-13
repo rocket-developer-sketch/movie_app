@@ -1,6 +1,7 @@
 import React from 'react'; //추가
 import axios from 'axios';
 import Movie from './Movie';
+import './App.css';
 
 /* 미래에 쓰고자 하는 state를 선언하는 건 필수가 아님
 그렇기 때문에 setTimeout() 에서 setState({isLoading: false, book: true})

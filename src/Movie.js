@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import './Movie.css';
 
 // a component that does not need state does not have to be a class component
 // it can be a function component
@@ -11,7 +12,7 @@ function Movie({year, title, summary, poster}) {
         <div class="movie">
             <img src={poster} alt={title} title={title} />
             <div class="movie__data">
-                <h3 class="movie__title" style={{backgroundColor: "red"}}>{title}</h3>
+                <h3 class="movie__title">{title}</h3>
                 <h5 class="movie__year">{year}</h5>
                 <p class="movie__summary">{summary}</p>
             </div>
