@@ -28,7 +28,7 @@ class App extends React.Component{
     <div>
       <h1>The number is {this.state.count}</h1>
       <button onClick={this.add}>Add</button>
-      <button>Minus</button>
+      <button onClick={this.minus}>Minus</button>
     </div>
     );
   }
@@ -39,6 +39,6 @@ export default App;
 /*
  <button onClick={this.add}>Add</button>
 onClick 은 react 문법
-{this.add()} 라고 부르지 않음
+{this.add()} 라고 부르지 않음. ()를 붙으면 그 즉시 호출 하라는 의미임
 this.add라고 부름
  */
