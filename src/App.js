@@ -91,3 +91,44 @@ state 에 있는 isLoading 과 movie에 접근
   <label for> 여기서 for는 javascript에서 반복문 키워드이기 때문에 react의 혼란이 옴
   <label htmlFor> 라고  입력
 */
+
+/*
+github pages에 올리기
+ph-pages github에 업로드하는 것을 허가해주는 모듈
+ph-pages 는 github의 github page 도메인에 내가 만든 웹사이트가 나타나도록 해줌
+ph-pages설치 : npm i ph-pages
+동작: github에서 project이름을 가져옴
+(git remote -v 로 project이름 확인가능)
+
+package.json 에서
+  homepage 를 새로 만들어 추가해주어야 함
+  가장 아래 줄에
+    "homepage": "https://user name.github.io/project이름"
+
+  "scripts" 에 
+  "deploy" : "gh-pages " 추가 후 
+  ctrl+c 로 서버 내린 후
+  npm run build 명령어 입력
+  biuild 라는 폴더가 생긴 것이 확인 가능
+
+  다시
+  "deploy" : "gh-pages -d build"
+  여기서 build 는 npm run build 후 생긴 폴더명이며, 동일한 폴더명을 적어주어야 함!
+
+   "scripts" 에 
+  "predeploy" : "npm run build"  추가
+
+  every time we call deploy, npm calls predeploy first
+  predeploy do npm run build and build calls build script(react-scripts build)
+  and that script will give a folder names build
+
+  that is the end of predeploy
+
+  after that, 
+  deploy calls gh-pages and upload the folder, build
+
+인터넷 웹에서 접근 : 주소창에 https://user name.github.io/project이름
+
+
+
+*/
