@@ -16,8 +16,21 @@ class App extends React.Component{
     count: 0
   };
 
+  add = () => {
+    console.log("function add");
+  }
+  minus = () => {
+    console.log("function minus");
+  }
+
   render (){
-    return <h1>The number is {this.state.count}</h1>;
+    return ( 
+    <div>
+      <h1>The number is {this.state.count}</h1>
+      <button>Add</button>
+      <button>Minus</button>
+    </div>
+    );
   }
 }
 
