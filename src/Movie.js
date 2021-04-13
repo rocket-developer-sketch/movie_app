@@ -7,6 +7,8 @@ import './Movie.css';
 
 //  <h3 class="movie__title" style={{}}>{title}</h3> style{{}} 로 사용함으로써
 //  style을 javascript 로 줄 수 있음
+// Page Ruler Redux : extension. 사이즈 측정
+// ColorZilla : 색 검사
 function Movie({year, title, summary, poster, genres}) {
     return <div className="movies_movie">
         <div className="movie">
@@ -14,7 +16,7 @@ function Movie({year, title, summary, poster, genres}) {
             <div className="movie__data">
                 <h3 className="movie__title">{title}</h3>
                 <h5 className="movie__year">{year}</h5>
-                <ul className="genres"> 
+                <ul className="movie_genres"> 
                     {genres.map((genre, index) => (
                         <li className="genres__genre" key={index}>{genre}</li>
                     ))}
