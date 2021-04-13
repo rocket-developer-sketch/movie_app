@@ -1,5 +1,6 @@
-import React from 'react' //추가
-import axios from 'axios'
+import React from 'react'; //추가
+import axios from 'axios';
+import Movie from './Movie';
 
 /* 미래에 쓰고자 하는 state를 선언하는 건 필수가 아님
 그렇기 때문에 setTimeout() 에서 setState({isLoading: false, book: true})
@@ -49,9 +50,25 @@ class App extends React.Component{
   }
 
   render () {
-    const {isLoading} = this.state;
-    return <div>{isLoading ? "Loading..." : "We are ready"}</div>;
+    const {isLoading, movies} = this.state;
+    return <div>{isLoading ? "Loading..." : movies.map((movie) => {
+      console.log(movie);
+      console.log("dont forget map() always return");
+      return <Movie 
+              key={movie.id}
+              id={movie.id} 
+              year={movie.year} 
+              title={movie.title} 
+              summary={movie.summary} 
+              poster={movie.medium_cover_image}
+              />
+    })}</div>;
   }
 }
 
 export default App;
+
+/*
+const {isLoading, movies} = this.state;
+state 에 있는 isLoading 과 movie에 접근
+*/
