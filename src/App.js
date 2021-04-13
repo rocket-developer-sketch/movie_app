@@ -27,7 +27,7 @@ class App extends React.Component{
     return ( 
     <div>
       <h1>The number is {this.state.count}</h1>
-      <button>Add</button>
+      <button onClick={this.add}>Add</button>
       <button>Minus</button>
     </div>
     );
@@ -36,3 +36,9 @@ class App extends React.Component{
 
 export default App;
 
+/*
+ <button onClick={this.add}>Add</button>
+onClick 은 react 문법
+{this.add()} 라고 부르지 않음
+this.add라고 부름
+ */
