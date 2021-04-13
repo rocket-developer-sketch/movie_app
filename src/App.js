@@ -30,9 +30,6 @@ https://yts-proxy.nomadcoders1.now.sh/list_movies.json
 
 API : yts.lt/api 접속 > API Endpoints 의 List moives
 json view extension (보기편하게 json 형식 갖춰 보여줌)
-
-
-
 */
 class App extends React.Component{
   state = {
@@ -53,13 +50,13 @@ class App extends React.Component{
   render () {
     const {isLoading, movies} = this.state;
     return (
-    <section class="container">
+    <section className="container">
       {isLoading ? (
-      <div class="loader">
-        <span class="loader_text">Loading...</span>
+      <div className="loader">
+        <span className="loader_text">Loading...</span>
       </div> 
     ) : (
-      <div class="movies">
+      <div className="movies">
         { movies.map(movie => (
             <Movie 
               key={movie.id}
@@ -68,6 +65,7 @@ class App extends React.Component{
               title={movie.title} 
               summary={movie.summary} 
               poster={movie.medium_cover_image}
+              genres={movie.genres}
             />
           ))}
       </div>
@@ -82,4 +80,14 @@ export default App;
 /*
 const {isLoading, movies} = this.state;
 state 에 있는 isLoading 과 movie에 접근
+*/
+
+/* Invalid DOM property `class`. Did you mean `className`? 에러 
+  react 는 javascript로 작성된 class를 찾는 데 
+  "javascript내의"  html에 class키워드가 있어 혼란
+  해결 : javascript내의 html class 키워드 -> className 으로 입력
+
+  다른 예시:
+  <label for> 여기서 for는 javascript에서 반복문 키워드이기 때문에 react의 혼란이 옴
+  <label htmlFor> 라고  입력
 */
