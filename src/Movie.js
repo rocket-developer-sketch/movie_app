@@ -4,8 +4,19 @@ import PropTypes from "prop-types";
 // a component that does not need state does not have to be a class component
 // it can be a function component
 
-function Movie({id, year, title, summary, poster}) {
-    return <h4>{title}</h4>
+//  <h3 class="movie__title" style={{}}>{title}</h3> style{{}} 로 사용함으로써
+//  style을 javascript 로 줄 수 있음
+function Movie({year, title, summary, poster}) {
+    return <div class="movies_movie">
+        <div class="movie">
+            <img src={poster} alt={title} title={title} />
+            <div class="movie__data">
+                <h3 class="movie__title" style={{backgroundColor: "red"}}>{title}</h3>
+                <h5 class="movie__year">{year}</h5>
+                <p class="movie__summary">{summary}</p>
+            </div>
+        </div>
+    </div>;
 }
 
 Movie.propTypes = {
