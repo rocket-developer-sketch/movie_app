@@ -21,7 +21,7 @@ javascript에게 알려야 함
   getMovies() 함수에서 데이터를 get 요청 하여 받고, async, await하는 방법
   async : 비동기 할 것임을 알림. 기다려야 함을 알림
   await : 기다릴 대상
-  
+
 yts : 불법적으로 영화 업로드하여 api가 자주 변경 됨. 그래서 Nicolas 강사가 TYS proxy API를 만들었음
 https://yts-proxy.nomadcoders1.now.sh/list_movies.json
 (https://yts-proxy.now.sh/list_movies.json)
@@ -40,6 +40,7 @@ class App extends React.Component{
 
   getMovies = async() => {
     const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+    console.log(movies.data.data.movies);
   }
 
   componentDidMount() {
