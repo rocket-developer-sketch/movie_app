@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import './Movie.css';
+import "./Movie.css";
 
 // a component that does not need state does not have to be a class component
 // it can be a function component

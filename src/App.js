@@ -4,6 +4,7 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Detail from "./routes/Detail";
 import Navigation from "./components/Navigation";
+import "./App.css";
 // HashRouter 를 사용하면 url /#/ 이 붙음. BrowserRouter 은 붙지 않는 다는 차이점이 있음
 // Browser Router는 github pages에 올리기 까다로움
 
