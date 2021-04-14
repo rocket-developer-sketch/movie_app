@@ -18,6 +18,9 @@ import Navigation from "./components/Navigation";
 // 해결 : exact = {true} 속성을 붙여주므로써 완전 동일한 path만 router 가 렌더링하도록 함
 
 // link를 가진 component Navigation을 Route 밖으로 내놓으면 동작하지 않음!
+
+// react router는 정의된 route에 기본적으로 전달되는 속성들이 있음
+// 이를 이용하여, Link 에서 to 에 object를 실어 보내어 route 간에 서로 props 공유가 가능해짐
 function App() {
   return (
   <HashRouter>
