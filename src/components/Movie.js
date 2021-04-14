@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import './Movie.css';
 
@@ -10,22 +11,35 @@ import './Movie.css';
 // Page Ruler Redux : extension. 사이즈 측정
 // ColorZilla : 색 검사
 function Movie({year, title, summary, poster, genres}) {
-    return <div className="movies_movie">
-        <div className="movie">
-            <img src={poster} alt={title} title={title} />
-            <div className="movie__data">
-                <h3 className="movie__title">{title}</h3>
-                <h5 className="movie__year">{year}</h5>
-                <ul className="movie_genres"> 
-                    {genres.map((genre, index) => (
-                        <li className="genres__genre" key={index}>{genre}</li>
-                    ))}
-                </ul>
-                <p className="movie__summary">{summary.slice(0,180)}...</p>
-          
+    return (
+    <Link to={{
+        pathname: "/movie-detail",
+        state: {
+            year,
+            title,
+            summary,
+            poster,
+            genres
+        }
+    }}>
+        <div className="movies_movie">
+            <div className="movie">
+                <img src={poster} alt={title} title={title} />
+                <div className="movie__data">
+                    <h3 className="movie__title">{title}</h3>
+                    <h5 className="movie__year">{year}</h5>
+                    <ul className="movie_genres"> 
+                        {genres.map((genre, index) => (
+                            <li className="genres__genre" key={index}>{genre}</li>
+                        ))}
+                    </ul>
+                    <p className="movie__summary">{summary.slice(0,180)}...</p>
+            
+                </div>
             </div>
         </div>
-    </div>;
+    </Link>
+    );
 }
 
 Movie.propTypes = {
