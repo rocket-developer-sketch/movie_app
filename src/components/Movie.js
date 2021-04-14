@@ -10,10 +10,10 @@ import './Movie.css';
 //  style을 javascript 로 줄 수 있음
 // Page Ruler Redux : extension. 사이즈 측정
 // ColorZilla : 색 검사
-function Movie({year, title, summary, poster, genres}) {
+function Movie({id, year, title, summary, poster, genres}) {
     return (
     <Link to={{
-        pathname: "/movie-detail",
+        pathname: `/movie/${id}`,
         state: {
             year,
             title,
